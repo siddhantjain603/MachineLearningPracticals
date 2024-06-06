@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>California House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container form input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .container form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container form button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>California House Price Prediction</h1>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <input type="text" name="MedInc" placeholder="MedInc" required="required" />
+            <input type="text" name="HouseAge" placeholder="HouseAge" required="required" />
+            <input type="text" name="AveRooms" placeholder="AveRooms" required="required" />
+            <input type="text" name="AveBedrms" placeholder="AveBedrms" required="required" />
+            <input type="text" name="Population" placeholder="Population" required="required" />
+            <input type="text" name="AveOccup" placeholder="AveOccup" required="required" />
+            <input type="text" name="Latitude" placeholder="Latitude" required="required" />
+            <input type="text" name="Longitude" placeholder="Longitude" required="required" />
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result">
+            <h2>The House price prediction is {{result}}</h2>
+        </div>
+    </div>
+</body>
+</html>

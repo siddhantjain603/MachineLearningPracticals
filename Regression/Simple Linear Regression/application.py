@@ -24,7 +24,10 @@ def predict_datapoint():
         new_data_scaled=standard_scaler.transform([[weight]])
         result=regression_model.predict(new_data_scaled)
 
-        return render_template('home.html',result=result[0])
+        # Format the result to display only two decimal places
+        formatted_result = "{:.2f}".format(result[0])
+
+        return render_template('home.html',result=formatted_result)
 
     else:
         return render_template('home.html')

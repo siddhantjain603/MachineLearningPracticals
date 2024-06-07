@@ -8,7 +8,7 @@ application = Flask(__name__)
 app=application
 
 ## import ridge regresor model and standard scaler pickle
-regression_model=pickle.load(open('models/lassoCV.pkl','rb'))
+regression_model=pickle.load(open('models/best_model.pkl','rb'))
 standard_scaler=pickle.load(open('models/scaler.pkl','rb'))
 
 ## Route for home page
